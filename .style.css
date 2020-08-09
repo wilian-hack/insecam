@@ -1,0 +1,96 @@
+*{
+	padding: 0;
+	margin: 0;
+
+}
+
+body {
+	background-image: url(".claro.png");
+	background-size: 200%;
+	animation: movimiento 10s infinite linear alternate;
+}
+
+@keyframes movimiento {
+	from {
+		background-position: botton, left;
+	}
+	to {
+		background-position: top, right;
+	}
+}
+#cabezera {
+	background: none;
+}
+
+#google {
+	width: 100%;
+	height: 300px;
+}
+
+div #parrafo1 {
+	width: 100%;
+	height: 130px;
+	background: none;
+	font-size: 100px;
+	color: white;
+}
+
+#contenido {
+	background: none;
+	width: 100%;
+}
+
+#parrafo2 {
+	padding: 50px;
+	background: none;
+	font-size: 50px;
+	color: white;
+}
+
+#parrafo3 {
+	padding: 50px;
+	background: none;
+	font-size: 30px;
+	color: white;
+}
+
+#parrafo4 {
+	padding: 50px;
+	background: none;
+	font-size: 30px;
+	color: white;
+}
+
+#parrafo5 {
+	padding: 50px;
+	background: none;
+	font-size: 30px;
+	color: white;
+}
+
+#parrafo6 {
+	padding: 50px;
+	background: none;
+	font-size: 30px;
+	color: white;
+}
+
+footer #iPhone11 {
+	padding: 100px;
+	width: 800px;
+	height: 600px;
+}
+
+footer #boton {
+	width: 380px;
+	height: 80px;
+	font-size: 30px;
+	color white;
+	background: #748eff;
+	border-radius: 5px;
+}
+
+footer {
+	width: 100%;
+	height: 2000px;
+}
