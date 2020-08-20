@@ -2,6 +2,6 @@
 
 # instalacion
 
-* `apt update
+* `apt update`
 
  • apt upgrade
