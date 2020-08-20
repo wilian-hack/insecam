@@ -1,7 +1,7 @@
 # insecam
 
-# instalacion
+## instalacion
 
 * `apt update`
 
- • apt upgrade
+* `apt upgrade`
